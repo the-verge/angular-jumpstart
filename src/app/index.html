@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular-Jumpstart</title>
+</head>
+<body ng-init="name='Dave'">
+    <div ng-hide="isHidden">
+        Name: <input type="text" ng-model="name" /> {{name}}
+    </div>
+    Hide: <input type="checkbox" ng-model="isHidden"/>
+    <button ng-click="name='John'">Change name</button>
+</body>
+</html>
