@@ -14,8 +14,16 @@
 //        }
 //    });
 
+/**
+ * Can inject dependencies in square brackets
+ */
 angular.module("customersApp")
-    .controller("customersController", CustomersController);
+    .controller("customersController", ["$scope", CustomersController]);
+
+/**
+ * This is another approach - remember this is necessary because of minification.
+ */
+//CustomersController.$inject["$scope"];
 
 function CustomersController ($scope) {
     $scope.sortBy = 'name';
