@@ -6,23 +6,25 @@
     <title>Angular-Jumpstart</title>
 </head>
 <body>
-    <div ng-init="people=[{name: 'John', city: 'Athlone'}, {name: 'Triona', city: 'Navan'}]">
-        <h4>Iterating through collection</h4>
-        <ul>
-            <li ng-repeat="person in people">
-                {{person.name}} {{person.city}}
-            </li>
-        </ul>
+    <div ng-init="customers=[{name: 'John', city: 'Athlone', joined: '2000-12-15', orderTotal: 99.9956}, {name: 'Triona', city: 'Navan', joined: '2005-06-03', orderTotal: 10.112},
+                            {name: 'Dave', city: 'Slane', joined: '2001-04-06', orderTotal: 8.664}, {name: 'Andy', city: 'Drogheda', joined: '2006-08-06', orderTotal: 4.664}]">
+        <h4>Customers</h4>
+        Filter: <input type="text" ng-model="customerFilter.name"/>
+        <br /> <br />
         <table>
             <thead>
                 <tr>
                     <td>Name</td>
                     <td>City</td>
+                    <td>Joined</td>
+                    <td>Order Total</td>
                 </tr>
             </thead>
-            <tr ng-repeat="person in people">
-                <td>{{person.name}}</td>
-                <td>{{person.city}}</td>
+            <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:'name'">
+                <td>{{cust.name | uppercase}}</td>
+                <td>{{cust.city  | lowercase}}</td>
+                <td>{{cust.joined | date:'longDate'}}</td>
+                <td>{{cust.orderTotal | currency:'€'}}</td>
             </tr>
         </table>
     </div>
